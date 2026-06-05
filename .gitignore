@@ -1,0 +1,27 @@
+# ── Windows ──────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ── Visual Studio / .NET ────────────────────────────
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+packages/
+*.nupkg
+
+# ── Node / misc ─────────────────────────────────────
+node_modules/
+*.log
+
+# ── Project-specific ────────────────────────────────
+NoGit*/
+*.msg
+*.pst
