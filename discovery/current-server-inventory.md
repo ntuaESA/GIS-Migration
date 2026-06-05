@@ -10,7 +10,13 @@
 - New VM domain: `ntua-ops.local` (DMZ VMs may use a separate OU — TBD)
 - Legacy servers will be decommissioned after cutover
 
-> **Lee's commits are authoritative** for hostnames and the legacy-to-new mapping. The new-VM names (`ops-GisPorta12`, `ops-Server12`, `ops-GisDS12`, plus one TBD) and the legacy-server mapping (`ops-deucepor01`, `ops-deucesds01`, …) are defined in [docs/sop-vm-deployment.md](../docs/sop-vm-deployment.md#naming-convention-for-new-gis-vms) — that table is the single source of truth, this doc just references it.
+> **Lee's commits are authoritative** for hostnames and the legacy-to-new mapping. Per
+> the 2026-06-05 update, the naming convention is now **`ops2-` + ESRI role** (gen-2
+> infrastructure, matches the AMI server naming family): `ops2-gisportal`,
+> `ops2-gisserver`, `ops2-gisdatastore`, plus one more (TBD) for the internal tier, and
+> `ops2-giswebportal` / `ops2-giswebserver` for the DMZ. The mapping table lives in
+> [docs/sop-vm-deployment.md](../docs/sop-vm-deployment.md#naming-convention-for-new-gis-vms)
+> — that's the single source of truth, this doc just references it.
 
 ## Purpose of this document
 
@@ -35,11 +41,11 @@ ArcGIS Enterprise tier in `ntua.local`, not the previously-assumed `GIS2APP1` /
 
 | Hostname | Domain | Role | OS | vCPU | RAM | Disk | IP Address | Notes |
 |---|---|---|---|---|---|---|---|---|
-| `ops-deucepor01` | ntua.local | ArcGIS Portal | TODO | TODO | TODO | TODO | TODO | Replaced by `ops-GisPorta12` |
-| `ops-deucesds01` | ntua.local | ArcGIS Data Store | TODO | TODO | TODO | TODO | TODO | Replaced by `ops-GisDS12` |
-| TODO | ntua.local | ArcGIS Server | TODO | TODO | TODO | TODO | TODO | Replaced by `ops-Server12`. Confirm hostname with Lee. |
-| TODO | ntua.local | Web Adapter (Portal) | TODO | TODO | TODO | TODO | TODO | Replaced by a DMZ web adapter VM. Confirm with Lee. |
-| TODO | ntua.local | Web Adapter (Server) | TODO | TODO | TODO | TODO | TODO | Replaced by a DMZ web adapter VM. Confirm with Lee. |
+| `ops-deucepor01` | ntua.local | ArcGIS Portal | TODO | TODO | TODO | TODO | TODO | Replaced by `ops2-gisportal` |
+| `ops-deucesds01` | ntua.local | ArcGIS Data Store | TODO | TODO | TODO | TODO | TODO | Replaced by `ops2-gisdatastore` |
+| TODO | ntua.local | ArcGIS Server | TODO | TODO | TODO | TODO | TODO | Replaced by `ops2-gisserver`. Confirm hostname with Lee. |
+| TODO | ntua.local | Web Adapter (Portal) | TODO | TODO | TODO | TODO | TODO | Replaced by `ops2-giswebportal` in DMZ. Confirm with Lee. |
+| TODO | ntua.local | Web Adapter (Server) | TODO | TODO | TODO | TODO | TODO | Replaced by `ops2-giswebserver` in DMZ. Confirm with Lee. |
 | TODO | ntua.local | TODO | TODO | TODO | TODO | TODO | TODO | Confirm with Lee (4–8 total) |
 
 > The original assumption that `GIS2APP1` and `GIS6APP1` were the migration targets came
