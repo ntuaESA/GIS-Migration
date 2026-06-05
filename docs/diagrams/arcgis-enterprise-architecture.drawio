@@ -1,91 +1,91 @@
 <mxfile host="65bd71144e">
-  <diagram name="ArcGIS Enterprise — NTUA" id="ntua-arcgis-v1">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="title" value="NTUA ArcGIS Enterprise — Base Multi-Machine Deployment&#10;(based on ESRI reference: doc.esri.com/en/arcgis-enterprise/latest/plan/base-arcgis-enterprise-deployment.html)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="20" width="730" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;labelPosition=center;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="380" y="90" width="30" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="laptop" value="Laptop" style="shape=mscae/Laptop;html=1;labelPosition=right;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="430" y="100" width="50" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="fw" value="Firewall" style="shape=mscae/Firewall;html=1;labelPosition=right;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="370" y="220" width="100" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="e-user-fw" style="endArrow=classic;html=1;dashed=1;strokeColor=#33A02C;strokeWidth=2;fontColor=#33A02C;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="laptop" target="fw">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="l-user-fw" value="TCP/443" style="text;html=1;align=center;fontColor=#33A02C;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="430" y="170" width="60" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="dmz-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#B0B0B0;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="330" width="700" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="dmz-lbl" value="DMZ / Web Tier" style="text;html=1;align=left;fontStyle=1;fontColor=#606060;" vertex="1" parent="1">
-          <mxGeometry x="90" y="335" width="140" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="web-gis" value="OPS-GISWEB01&#10;10.23.62.129&#10;Web Adapter (GIS)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="170" y="370" width="200" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="web-deuce" value="OPS-DEUCESWeb02&#10;10.23.62.128&#10;Web Adapter (DEUCES)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="490" y="370" width="200" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="e-fw-web1" style="endArrow=classic;html=1;dashed=1;strokeColor=#33A02C;strokeWidth=2;fontColor=#33A02C;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fw" target="web-gis">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e-fw-web2" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F78B4;strokeWidth=2;fontColor=#1F78B4;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fw" target="web-deuce">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="l-fw-web1" value="TCP/443" style="text;html=1;align=center;fontColor=#33A02C;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="225" y="320" width="60" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="l-fw-web2" value="TCP/443" style="text;html=1;align=center;fontColor=#1F78B4;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="540" y="320" width="60" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="int-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6E4F2;strokeColor=#3E7AB7;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="80" y="610" width="700" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="int-lbl" value="Internal Network — ntua-ops.local" style="text;html=1;align=left;fontStyle=1;fontColor=#1F4E79;" vertex="1" parent="1">
-          <mxGeometry x="90" y="615" width="300" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="portal" value="ops-GisPorta12&#10;10.23.62.130&#10;ArcGIS Portal&#10;(replaces ops-deucepor01)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="110" y="670" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="server" value="ops-Server12&#10;10.23.62.132&#10;ArcGIS Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="670" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="datastore" value="ops-GisDS12&#10;10.23.62.134&#10;ArcGIS Data Store&#10;(replaces ops-deucesds01)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="570" y="670" width="190" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="e-web1-portal" style="endArrow=classic;html=1;dashed=1;strokeColor=#E31A1C;strokeWidth=2;fontColor=#E31A1C;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="web-gis" target="portal">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="l-web1-portal" value="TCP/7443" style="text;html=1;align=center;fontColor=#E31A1C;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="560" width="70" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="e-web2-server" style="endArrow=classic;html=1;dashed=1;strokeColor=#FF7F00;strokeWidth=2;fontColor=#FF7F00;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="web-deuce" target="server">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="l-web2-server" value="TCP/6443" style="text;html=1;align=center;fontColor=#FF7F00;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="555" y="560" width="70" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="e-server-ds" style="endArrow=none;html=1;strokeColor=#1F4E79;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="server" target="datastore">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="legend-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B0B0B0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="80" y="850" width="700" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="legend-title" value="Legend / Open Questions" style="text;html=1;align=left;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="90" y="855" width="300" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="legend-body" value="• Boxes show new VMs to deploy on Azure Local (cluster NTUA-OPS-HCI1-C, RG rg-AzureLocal-GIS_Production, domain ntua-ops.local).&#10;• This is a base ArcGIS Enterprise multi-machine deployment per the ESRI reference architecture.&#10;• IP usage: 10.23.62.128 (web), .129 (web), .130 (portal), .132 (server), .134 (datastore). .131 and .133 currently spare.&#10;• New-VM hostnames in the Internal Network tier come from Lee's commit 560948a; the DEUCES names in parens are the LEGACY servers being replaced.&#10;&#10;Open questions for Lee / Celeste:&#10; 1. Are web adapters at .128/.129 net-new VMs we should build, pre-existing servers we reuse, or colocated on the Portal/Server boxes?&#10; 2. Confirm whether OPS-GISWEB01 and OPS-DEUCESWeb02 are real existing hostnames (they aren't in rg-AzureLocal-GIS_Production today).&#10; 3. Hostname for the 4th new VM at .133 (Lee's SOP table currently has 'ops-gisapp?'). Likely the second ArcGIS Server node, or something else?&#10; 4. The '12' suffix on ops-GisPorta12 / ops-GisDS12 / ops-Server12 — ArcGIS Enterprise version 12?" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="90" y="880" width="680" height="170" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+    <diagram name="ArcGIS Enterprise — NTUA" id="ntua-arcgis-v1">
+        <mxGraphModel dx="961" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="NTUA ArcGIS Enterprise — Base Multi-Machine Deployment&#xa;(based on ESRI reference: doc.esri.com/en/arcgis-enterprise/latest/plan/base-arcgis-enterprise-deployment.html)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="20" width="730" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;labelPosition=center;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="90" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="laptop" value="Laptop" style="shape=mscae/Laptop;html=1;labelPosition=right;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="100" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="fw" value="Firewall" style="shape=mscae/Firewall;html=1;labelPosition=right;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="220" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-user-fw" style="endArrow=classic;html=1;dashed=1;strokeColor=#33A02C;strokeWidth=2;fontColor=#33A02C;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="laptop" target="fw" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l-user-fw" value="TCP/443" style="text;html=1;align=center;fontColor=#33A02C;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="170" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="dmz-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#B0B0B0;dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="330" width="700" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="dmz-lbl" value="DMZ / Web Tier" style="text;html=1;align=left;fontStyle=1;fontColor=#606060;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="335" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="web-gis" value="OPS-GISWEB01&#xa;10.23.62.129&#xa;Web Adapter (GIS)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="370" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="web-deuce" value="OPS-DEUCESWeb02&#xa;10.23.62.128&#xa;Web Adapter (DEUCES)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="370" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-fw-web1" style="endArrow=classic;html=1;dashed=1;strokeColor=#33A02C;strokeWidth=2;fontColor=#33A02C;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="fw" target="web-gis" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-fw-web2" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F78B4;strokeWidth=2;fontColor=#1F78B4;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="fw" target="web-deuce" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l-fw-web1" value="TCP/443" style="text;html=1;align=center;fontColor=#33A02C;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="225" y="320" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="l-fw-web2" value="TCP/443" style="text;html=1;align=center;fontColor=#1F78B4;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="320" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="int-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6E4F2;strokeColor=#3E7AB7;dashed=0;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="610" width="700" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="int-lbl" value="Internal Network — ntua-ops.local (10.23.62.130–134)" style="text;html=1;align=left;fontStyle=1;fontColor=#1F4E79;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="615" width="400" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="portal" value="ops-GisPorta12&#xa;10.23.62.130&#xa;ArcGIS Portal&#xa;(replaces ops-deucepor01)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="670" width="190" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="server" value="ops-Server12&#xa;10.23.62.132&#xa;ArcGIS Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="670" width="190" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="datastore" value="ops-GisDS12&#xa;10.23.62.134&#xa;ArcGIS Data Store&#xa;(replaces ops-deucesds01)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F77B4;strokeColor=#0E4A78;fontColor=#FFFFFF;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="670" width="190" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-web1-portal" style="endArrow=classic;html=1;dashed=1;strokeColor=#E31A1C;strokeWidth=2;fontColor=#E31A1C;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="web-gis" target="portal" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l-web1-portal" value="TCP/7443" style="text;html=1;align=center;fontColor=#E31A1C;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="560" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-web2-server" style="endArrow=classic;html=1;dashed=1;strokeColor=#FF7F00;strokeWidth=2;fontColor=#FF7F00;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="web-deuce" target="server" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l-web2-server" value="TCP/6443" style="text;html=1;align=center;fontColor=#FF7F00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="555" y="560" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-server-ds" style="endArrow=none;html=1;strokeColor=#1F4E79;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="server" target="datastore" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B0B0B0;dashed=0;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="850" width="700" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-title" value="Legend / Open Questions" style="text;html=1;align=left;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="855" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-body" value="• New VMs deploy on Azure Local cluster NTUA-OPS-HCI1-C, RG rg-AzureLocal-GIS_Production, domain ntua-ops.local.&#xa;• Base ArcGIS Enterprise multi-machine deployment per the ESRI reference architecture.&#xa;• Internal tier (4 VMs) sits on the existing server VLAN at 10.23.62.130, .132, .134 plus one more (.133) TBD; .131 reserved as spare.&#xa;• DMZ tier (2 Web Adapter VMs) sits on a separate subnet behind Lee&#39;s Palo Alto NGFW. IP range TBD — confirming with Lee next week whether a DMZ already exists in his firewall config or needs to be built.&#xa;• New-VM hostnames in the Internal tier are authoritative (Lee&#39;s commit 560948a); DMZ hostnames are proposed.&#xa;&#xa;Open questions for next sync with Lee:&#xa; 1. Does a DMZ already exist on the Palo Alto for this purpose, or do we design one (subnet + VLAN + rules)?&#xa; 2. Hostname for the 4th internal VM at .133 (currently &#39;ops-gisapp?&#39; in the SOP).&#xa; 3. The &#39;12&#39; suffix on the internal-tier hostnames — ArcGIS Enterprise version 12?&#xa; 4. Disposition of GIS2APP1 / GIS6APP1 (originally assumed in scope, but Lee&#39;s edits point to the DEUCES stack instead)." style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="880" width="680" height="170" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>

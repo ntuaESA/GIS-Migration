@@ -67,7 +67,8 @@ Key facts copied here for convenience:
 | OS management | 10 | 192.168.10.0/24 | Host OS + WAC |
 | Storage 1 | 711 | 10.71.1.0/24 | East-west between nodes |
 | Storage 2 | 712 | 10.71.2.0/24 | East-west between nodes |
-| Guest VM (GIS) | TODO — confirm | `10.23.62.0/?` | **New GIS VMs use `10.23.62.130–134` (per Lee). Need VLAN ID and subnet mask confirmed.** |
+| Guest VM — internal server tier | TODO — confirm | `10.23.62.0/?` | New ArcGIS internal tier (Portal/Server/Data Store/+1) uses `10.23.62.130–134` |
+| Guest VM — DMZ (web adapters) | **TBD** | **TBD** | Web Adapter VMs sit in a DMZ segmented by Lee's **Palo Alto NGFW**. Need to confirm next week whether the DMZ already exists in his Palo Alto config. |
 
 ## GIS VMs already in this environment
 
@@ -109,7 +110,8 @@ We want **Azure Local VMs** for the new GIS servers. The SOP in
 
 ## Open items for Lee to confirm
 
-- [ ] VLAN ID and subnet mask for the `10.23.62.0/?` guest network (IPs `10.23.62.130–134` already allocated)
+- [ ] VLAN ID and subnet mask for the `10.23.62.0/?` server network (IPs `10.23.62.130–134` already allocated)
+- [ ] **Whether a DMZ for the web adapter tier already exists on Lee's Palo Alto NGFW**, or whether we need to design one (subnet, VLAN, firewall rules between DMZ → internal tier)
 - [ ] Storage volume / pool to use for the new VM disks
-- [ ] Full list of the 4–8 legacy `ntua.local` servers being decommissioned (we have GIS2APP1, GIS6APP1)
-- [ ] Final role mapping for the 4 new VMs (which one is web, which is DB, which is portal, etc.)
+- [ ] Final role / hostname for the 4th internal-tier VM at `10.23.62.133`
+- [ ] Disposition of `GIS2APP1` / `GIS6APP1` legacy servers (separate from the DEUCES stack)
