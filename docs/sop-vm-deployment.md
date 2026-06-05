@@ -11,11 +11,49 @@ This Standard Operating Procedure documents how to create, configure, and manage
 
 ## Prerequisites
 
-> TODO — Document:
-> - WAC URL and access requirements
-> - Azure Local cluster name and node details
-> - Required permissions / AD group membership
-> - Network prerequisites (VLANs, DNS, DHCP reservations)
+### Environment values you'll need
+
+All values below come from the as-built Azure Local cluster configuration. The
+canonical source is the security-project repo —
+[azure-local-cluster-config.md](../../NTUA-Security-Project/01-Network-Segmentation/docs/infrastructure/azure-local-cluster-config.md)
+— and an overview is in
+[discovery/azure-local-environment.md](../discovery/azure-local-environment.md).
+
+| Setting | Value |
+|---|---|
+| Azure Local cluster | `NTUA-OPS-HCI1-C` (3-node Dell APEX) |
+| Azure subscription | `d6520ce9-5566-4091-920b-4348d4e708b4` |
+| Cluster resource group | `rg-hci-fd` |
+| GIS VM resource group | `rg-AzureLocal-GIS_Production` |
+| Domain | `ntua-ops.local` |
+| Domain controllers / DNS | `OPS-DC1`, `OPS-DC2` (`10.23.61.101`, `10.23.61.102`) |
+| WAC URL | `https://OPS-AMDHOST.ntua-ops.local` (witness host) |
+| Guest VM VLAN/subnet | `10.23.62.0/?` — **VLAN ID + mask TBD with Lee** (new GIS VM IPs `10.23.62.130–134`) |
+| Storage path / volume | **TODO — confirm with Lee** |
+
+### Access requirements
+
+- Domain account in `ntua-ops.local` with Domain Admin (Lee, David) or membership in the
+  HCI management group (`OPS-ACPManager`)
+- Network reachability from your workstation to `OPS-AMDHOST.ntua-ops.local` on TCP 443
+- Azure Portal access to subscription `d6520ce9-...` (for visibility — VM creation goes
+  through WAC)
+
+### Naming convention for new GIS VMs
+
+Follow the existing pattern in `rg-AzureLocal-GIS_Production`: lowercase `ops-gis*`.
+Proposed for this migration (replaces 4–8 legacy `ntua.local` servers):
+
+| New VM | IP | Replaces (legacy) |
+|---|---|---|
+| `ops-gisapp2` | `10.23.62.130` | `GIS2APP1` (+ ?) |
+| `ops-gisapp6` | `10.23.62.131` | `GIS6APP1` (+ ?) |
+| `ops-gisapp?` | `10.23.62.132` | TBD with Lee |
+| `ops-gisapp?` | `10.23.62.133` | TBD with Lee |
+| _spare_ | `10.23.62.134` | held in reserve for cutover overlap |
+
+> **Decisions needed from Lee:** Confirm or adjust the naming scheme and the
+> legacy-to-new mapping before any VM is created — renaming after domain-join is painful.
 
 ## Procedure (Windows Admin Center)
 
