@@ -9,7 +9,7 @@
 | Person | Email | Role | Access needed |
 |---|---|---|---|
 | Lee Begaye | `leanderb@ntua.com` | Client lead \u2014 Sr. Systems Architect, AMI/GIS | Owns the `ntua-ops.local` domain and the Azure tenant; full admin everywhere |
-| Celeste C. | `celestec@ntua.com` | NTUA team \u2014 working the migration alongside Lee | Entra ID Global Administrator + Subscription Owner (**via PIM, see below**) |
+| Celeste Clah | `celeste@ntua.com` | NTUA team — working the migration alongside Lee | Entra ID Global Administrator + Subscription Owner (**via PIM, see below**) |
 | David Bjurman-Birr | `davidb@ntuaops.onmicrosoft.com` | RTH (contractor) | Currently signed in; effective Owner across the tenant |
 | Kutlu Gulamber | (Mind's Angle LLC) | Partner | TBD \u2014 confirm with Lee whether Kutlu needs Azure access |
 
@@ -54,7 +54,7 @@ privileges and activates only when needed.
 
 ### Prerequisites for Celeste
 
-- [ ] Entra ID account `celestec@ntua.com` exists and is enabled
+- [ ] Entra ID account `celeste@ntua.com` exists and is enabled
 - [ ] MFA registered (Authenticator app, FIDO2 key, or Windows Hello for Business)
 - [ ] **No** standing assignments to Global Admin or Owner before PIM is set up (avoid the dual-state confusion)
 
@@ -65,17 +65,17 @@ privileges and activates only when needed.
 1. Azure Portal \u2192 search **Microsoft Entra Privileged Identity Management**
 2. **Microsoft Entra roles** \u2192 **Assignments** \u2192 **Add assignments**
 3. Role: `Global Administrator`
-4. Member: `celestec@ntua.com`
+4. Member: `celeste@ntua.com`
 5. Assignment type: **Eligible**
 6. Duration: **Permanently eligible** (so the eligibility doesn't auto-expire mid-project)
-7. Open the role's **Role settings** and verify: MFA on activation = **Required**, Justification = **Required**, Max activation duration \u2264 4 hours
+7. Open the role's **Role settings** and verify: MFA on activation = **Required**, Justification = **Required**, Max activation duration ≤ 4 hours
 
 **Owner on the subscription (Azure resources PIM)**
 
-1. Azure Portal \u2192 the subscription (`Azure subscription 1`) \u2192 **Access control (IAM)**
-2. **Privileged access (Preview)** tab \u2192 **Add assignments**
+1. Azure Portal → the subscription (`Azure subscription 1`) → **Access control (IAM)**
+2. **Privileged access (Preview)** tab → **Add assignments**
 3. Role: `Owner`
-4. Member: `celestec@ntua.com`
+4. Member: `celeste@ntua.com`
 5. Assignment type: **Eligible** \u2014 Permanently eligible
 6. Confirm the role's settings require MFA + justification on activation
 
@@ -86,10 +86,10 @@ privileges and activates only when needed.
 
 ```powershell
 # Verify Celeste exists in the tenant
-az ad user show --id celestec@ntua.com --query "{upn:userPrincipalName,id:id,enabled:accountEnabled}" -o table
+az ad user show --id celeste@ntua.com --query "{upn:userPrincipalName,id:id,enabled:accountEnabled}" -o table
 
-# Standing (NOT preferred \u2014 use PIM instead): Owner on subscription
-# az role assignment create --assignee celestec@ntua.com --role Owner \
+# Standing (NOT preferred — use PIM instead): Owner on subscription
+# az role assignment create --assignee celeste@ntua.com --role Owner \
 #   --scope /subscriptions/d6520ce9-5566-4091-920b-4348d4e708b4
 ```
 
@@ -98,7 +98,7 @@ For PIM, prefer the Graph API or the Azure Portal. Microsoft Learn:
 
 ### After assignment \u2014 verify with Celeste
 
-- [ ] Celeste can sign in to <https://portal.azure.com> with `celestec@ntua.com`
+- [ ] Celeste can sign in to <https://portal.azure.com> with `celeste@ntua.com`
 - [ ] She sees the NTUA tenant and `Azure subscription 1`
 - [ ] PIM \u2192 **My roles** shows `Global Administrator` (Eligible) and `Owner` (Eligible) \u2014 both **inactive** until she activates
 - [ ] She can activate either role with justification and the role appears as **Active** with the correct expiry
@@ -109,7 +109,7 @@ For PIM, prefer the Graph API or the Azure Portal. Microsoft Learn:
 | Person | Standing roles | Eligible (PIM) roles | Granted | Verified | Notes |
 |---|---|---|---|---|---|
 | David Bjurman-Birr | (existing) | (existing) | pre-project | n/a | RTH contractor; already operational |
-| Celeste C. | none | Global Admin (tenant), Owner (sub `d6520ce9-...`) | **pending** | **pending** | Per Lee, 2026-06-05 |
+| Celeste Clah | none | Global Admin (tenant), Owner (sub `d6520ce9-...`) | **pending** | **pending** | Per Lee, 2026-06-05. UPN confirmed via Lee's commit to ntuaESA/GIS-Migration. |
 
 ## Action items
 

@@ -4,10 +4,10 @@
 |---|---|
 | **Opportunity** | OPP-2026-05-025 |
 | **Purchase Order** | PO 200825 |
-| **Budget** | 40 hours / $6,000 |
+| **Budget** | 40 hours |
 | **Client** | NTUA Electrical Operations / AMI / GIS |
 | **Client Contact** | Lee Begaye — Sr. Systems Architect, AMI/GIS · leanderb@ntua.com · (928) 729-6219 |
-| **NTUA Team** | Celeste C. — celestec@ntua.com (working migration alongside Lee) |
+| **NTUA Team** | Celeste Clah — celeste@ntua.com (working migration alongside Lee) |
 | **Partner** | Mind's Angle LLC (Kutlu Gulamber) |
 | **Contractor** | Round the House Technology (RTH) — David Bjurman-Birr |
 
