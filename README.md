@@ -69,7 +69,8 @@ Start here, in order, if you're new to this project (this means you, Lee):
 6. [docs/access-and-permissions.md](docs/access-and-permissions.md) — Who has access to what, and the PIM model for elevated roles.
 7. [docs/sop-vm-deployment.md](docs/sop-vm-deployment.md) — How to deploy and manage VMs on the cluster (the everyday playbook).
 8. [docs/service-accounts.md](docs/service-accounts.md) — Service accounts the GIS stack depends on.
-9. [docs/as-built.md](docs/as-built.md) — The final state of the migrated environment (filled in as we go).
+9. [docs/diagrams/](docs/diagrams/) — Architecture diagrams (.drawio). Open in VS Code with the [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension.
+10. [docs/as-built.md](docs/as-built.md) — The final state of the migrated environment (filled in as we go).
 
 ## Related
 
