@@ -45,12 +45,17 @@ Follow the existing pattern in `rg-AzureLocal-GIS_Production`: lowercase `ops-gi
 Proposed for this migration (replaces 4–8 legacy `ntua.local` servers):
 
 | New VM | IP | Replaces (legacy) | Legacy IP |
-|---|---|---|
+|---|---|---|---|
 | `ops-GisPorta12` | `10.23.62.130` | `ops-deucepor01.ntua.local` (+ ?) | `10.23.62.130` |
-| `ops-GisDS12` | `10.23.62.134` | `ops-deucesds01.ntua.local` (+ ?) |`10.23.62.134` |
-| `ops-Server12` | `10.23.62.132` | TBD with Lee |`10.23.62.132` |
-| `ops-gisapp?` | `10.23.62.133` | TBD with Lee |`10.23.62.133` | 
-| _spare_ | `10.23.62.134` | held in reserve for cutover overlap ||
+| `ops-GisDS12` | `10.23.62.134` | `ops-deucesds01.ntua.local` (+ ?) | `10.23.62.134` |
+| `ops-Server12` | `10.23.62.132` | TBD with Lee | `10.23.62.132` |
+| `ops-gisapp?` | `10.23.62.133` | TBD with Lee | `10.23.62.133` |
+| _spare_ | `10.23.62.131` (?) | held in reserve for cutover overlap | n/a |
+
+> **Open questions on the table above (for Lee):**
+> - The Data Store (`ops-GisDS12`) and the spare row both showed `10.23.62.134` after the last edit — changed the spare to `.131` since `.134` is now the live Data Store. Confirm the spare IP.
+> - Web Adapter VMs from Celeste's diagram (`OPS-GISWEB01` @ `.129`, `OPS-DEUCESWeb02` @ `.128`) aren't represented here. Are they: (a) colocated on the Portal/Server VMs above, (b) pre-existing servers we reuse, or (c) two more new VMs that should be added to this table?
+> - The `12` suffix on `ops-GisPorta12`, `ops-GisDS12`, `ops-Server12` — confirm whether that refers to ArcGIS Enterprise 12 / a sequence number / something else, so it's documented.
 
 > **Decisions needed from Lee:** Confirm or adjust the naming scheme and the
 > legacy-to-new mapping before any VM is created — renaming after domain-join is painful.
