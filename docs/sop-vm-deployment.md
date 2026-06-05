@@ -44,12 +44,12 @@ canonical source is the security-project repo —
 Follow the existing pattern in `rg-AzureLocal-GIS_Production`: lowercase `ops-gis*`.
 Proposed for this migration (replaces 4–8 legacy `ntua.local` servers):
 
-| New VM | IP | Replaces (legacy) |
+| New VM | IP | Replaces (legacy) | Legacy IP
 |---|---|---|
-| `ops-gisapp2` | `10.23.62.130` | `GIS2APP1` (+ ?) |
-| `ops-gisapp6` | `10.23.62.131` | `GIS6APP1` (+ ?) |
-| `ops-gisapp?` | `10.23.62.132` | TBD with Lee |
-| `ops-gisapp?` | `10.23.62.133` | TBD with Lee |
+| `ops-GisPorta12` | `10.23.62.130` | `ops-deucepor01.ntua.local` (+ ?) | `10.23.62.130` |
+| `ops-GisDS12` | `10.23.62.134` | `ops-deucesds01.ntua.local` (+ ?) |`10.23.62.134` |
+| `ops-Server12` | `10.23.62.132` | TBD with Lee |`10.23.62.132` |
+| `ops-gisapp?` | `10.23.62.133` | TBD with Lee |`10.23.62.133` | 
 | _spare_ | `10.23.62.134` | held in reserve for cutover overlap |
 
 > **Decisions needed from Lee:** Confirm or adjust the naming scheme and the
